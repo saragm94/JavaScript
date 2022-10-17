@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="receta.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Receta</title>
+  </head>
+  <body onload="cantidades()">
+  <h2>Receta para hoy</h2>
+  <div class="ingredientes">
+    <h3>Ingredientes(<u id="comensal"></u> personas):</h3>
+    <div class="cards">
+      <div class="card">
+        <img src="img/laminas.jpg" alt="laminas">
+        <p><u id="laminas"></u> láminas de pasta.</p>
+      </div>
+      <div class="card">
+        <img src="img/bolosena.jpg" alt="boloñesa">
+        <p><u id="salsa"></u> gr de salsa boloñesa.</p>
+      </div>
+      <div class="card">
+        <img src="img/bechamel.jpg" alt="bechamel">
+        <p><u id="bechamel"></u> gr de bechamel.</p>
+      </div>
+      <div class="card">
+        <img src="img/queso.jpg" alt="queso">
+        <p><u id="queso"></u> gr de queso amarillo parmesano rallado.</p>
+      </div>
+      <div class="card">
+        <img src="img/mantequilla.png" alt="mantequilla">
+        <p><u id="mantequilla"></u> cucharada de mantequilla.</p>
+      </div>
+    </div>
+  </div>
+  <div class="preparacion">
+    <h3>Preparación:</h3>
+    <ol>
+      <li>Cocemos las placas de lasaña siguiendo instrucciones del fabricante.</li>
+      <li>Derretimos la mantequilla y untamos con ella una fuente apta para el horno, vertemos encima un cucharón de salsa bechamel para lasaña.</li>
+      <li>Disponemos encima de la bechamel las placas de pasta de lasaña de forma que cubran toda la fuente sin que quede ningún hueco entre ellas y sin que se solapen demasiado.</li>
+      <li>A continuación, las cubrimos con la salsa boloñesa.</li>
+      <li>Espolvoreamos con queso parmesano.</li>
+      <li>Completamos con una nueva capa de salsa bechamel, hay que asegurarse de bajar las esquinas de la masa. Repetimos; capa de placas de lasaña (puestas en dirección contraria que la vez anterior), capa de salsa boloñesa, capa de queso parmesano y capa de bechamel, terminamos espolvoreando queso parmesano.</li>
+      <li>Hornear en horno precalentado a 180°., durante unos 30 minutos, la cocinamos con un papel de aluminio encima de la última capa, cuidando que no roce con el queso, para que no se quede pegado al aluminio. Cuando han pasado los 30 minutos retiramos el papel de aluminio y la gratinamos.</li>
+      <li>Estará listo cuando se forme una corteza crujiente en la superficie.</li>
+    </ol>
+  </div>
+  <button type="button" name="BotonAyuda" onclick="BotonMsg()">Mensaje</button>
+  <button type="button" name="button" onclick="NuevoComensal()">Cambiar número de comensales</button>
+  <img src="img/garfield.jpeg" id="garfield" alt="garfield">
+  </body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <script src="js/script.js"></script>
+
+    <title>Aplicaciones deportivas</title>
+  </head>
+  <body onload="inicio()">
+    <main>
+      <h1 class="visually-hidden">Aplicaciones deportivas</h1>
+      <div class="px-4 py-5 my-5 text-center">
+        <h1 class="display-5 fw-bold">Aplicaciones deportivas</h1>
+        <div>
+          <p class="lead mb-4" name="IMC">El índice de masa corporal es una razón matemática que asocia la masa y la talla de un individuo, ideada por el estadista belga Adolphe Quetelet, por lo que también se conoce como índice de Quetelet.</p>
+          <p class="lead mb-4" name="FCM">Una frecuencia cardíaca en reposo normal para los adultos oscila entre 60 y 100 latidos por minuto. Generalmente, una frecuencia cardíaca más baja en reposo implica una función cardíaca más eficiente y un mejor estado físico cardiovascular.</p>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <h3 class="display-8 fw-bold">Elija tipo de pueba</h3>
+            <!--Botones para seleccionar una calculadora-->
+            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+              <label class="btn btn-outline-primary btn-lg px-4 gap-3" for="btnradio1" onclick="showIMC()">IMC</label>
+              <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+              <label class="btn btn-outline-primary btn-lg px-4 gap-3" for="btnradio2" onclick="showFCM()">FCM</label>
+              <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+              <label class="btn btn-outline-primary btn-lg px-4 gap-3" for="btnradio3" onclick="showEDAD()">Edad</label>
+            </div>
+          </div>
+<!---IMC-------------------------------------------------------------------------------------------->
+          <div class="container-fluid mt-4 " name="IMC">
+            <div class="row">
+              <!--Columna vacía para crear 4 columnas y quede más estético-->
+              <div class="col-sm-3 col-md-3 col-lg-3"></div>
+              <!--Formulario para introducir todos los datos-->
+              <div name="imc" id="imc-datos" class="col-sm-3 col-md-3 col-lg-3 mt-4 align-self-center">
+                <form id="IMCform" onsubmit="IMC()">
+                  <div class="mb-3">
+                    <label for="IMCaltura"><h6>Altura</h6></label>
+                    <input type="number" class="form-control" id="IMCaltura">
+                  </div>
+                  <div class="mb-3">
+                    <label for="IMCpeso"><h6>Peso</h6></label>
+                    <input type="number" class="form-control" id="IMCpeso">
+                  </div>
+                  <button type="submit" class="btn btn-primary" id="ModalIMC">Calcular</button>
+                </form>
+              </div>
+              <!--Tabla de referencias-->
+              <div name="imc-ref" id="imc-ref" class="col-sm-3 col-md-3 col-lg-3 my-4" >
+                <!--Infrapeso(delgadez severa)-->
+                <h6>Infrapeso (delgadez severa)</h6>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" aria-label="Default striped example" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <!--Infrapeso (delgadez moderada)-->
+                <h6>Infrapeso (delgadez moderada)</h6>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" aria-label="Success striped example" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <!--Infrapeso (delgadez aceptable)-->
+                <h6>Infrapeso (delgadez aceptable)</h6>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped" role="progressbar" aria-label="Info striped example" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <!--Peso normal-->
+                <h6>Peso normal</h6>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped bg-success" role="progressbar" aria-label="Warning striped example" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <!--Sobrepeso-->
+                <h6>Sobrepeso</h6>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped bg-info" role="progressbar" aria-label="Danger striped example" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <!--Obeso (Tipo I)-->
+                <h6>Obeso (Tipo I)</h6>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped" role="progressbar" aria-label="Info striped example" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <!--Obeso (Tipo II)-->
+                <h6>Obeso (Tipo II)</h6>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" aria-label="Warning striped example" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <!--Obeso (Tipo III)-->
+                <h6>Obeso (Tipo III)</h6>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" aria-label="Danger striped example" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+      <!--Resultados----------------------------------------------->
+              <!--Los resultados se irán mostrando en una columna a la derecha según se vayan calculando-->
+              <div class="col-sm-3 col-md-3 col-lg-3 mt-4 align-self-center" id="resultados">
+                <!--IMC---------------------------------------------->
+                <div class="row justify-content-center" id="IMCresultado" style="display: none">
+                  <!--Peso y altura-->
+                  <div class="row justify-content-center">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h5>Altura</h5>
+                    </div>
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <h5>Peso</h5>
+                    </div>
+                  </div>
+                  <!--Barra de peso-->
+                  <div class="progress mt-4">
+                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" aria-label="Warning striped example" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+                <!--FCM---------------------------------------------->
+                <!-- https://bestjquery.com/tutorial/progress-bar/demo70/ -->
+                <div class="row justify-content-center" id="FMCresultado" style="display: none" >
+                  <div class="progress-circle blue mt-4">
+                  <span class="progress-left">
+                      <span class="progress-bar"></span>
+                  </span>
+                  <span class="progress-right">
+                      <span class="progress-bar"></span>
+                  </span>
+                  <div class="inner-circle"></div>
+                  <div class="progress-value"><span>5</span>%</div>
+                </div>
+                <!--EDAD---------------------------------------------->
+                <div class="row justify-content-center mt-4" id="EDADresultado" style="display: none">
+                  <h5>Millenial</h5>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<!---FCM-------------------------------------------------------------------------------------------->
+              <div class="container-fluid mt-4 " name="FCM">
+                <div class="row">
+                  <!--Columna vacía para crear 4 columnas y quede más estético-->
+                  <div class="col-sm-3 col-md-3 col-lg-3"></div>
+                  <!--Formulario para introducir todos los datos-->
+                  <div name="FCM" id="imc-datos" class="col-sm-3 col-md-3 col-lg-3 mt-4 align-self-center">
+                    <form id="FCMform">
+                      <div class="mb-3">
+                        <label for="FCMedad"><h6>Edad</h6></label
+                        <input type="number" class="form-control" id="FCMedad">
+                      </div>
+                      <div class="mb-3">
+                        <label for="FCMgen"><h6>Género</h6></label>
+                        <input type="text" class="form-control" id="FCMgen">
+                      </div>
+                      <button type="submit" class="btn btn-primary" action="FCM()">Calcular</button>
+                    </form>
+                  </div>
+                  <!--Tabla de referencias-->
+                  <div name="imc-ref" id="imc-ref" class="col-sm-3 col-md-3 col-lg-3 my-4" >
+                    <!--Zona de recuperación-->
+                    <h6>Zona de recuperación</h6>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-striped bg-success" role="progressbar" aria-label="Success striped example" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <!--Zona aeróbica-->
+                    <h6>Zona aeróbica</h6>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-striped bg-info" role="progressbar" aria-label="Info striped example" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <!--Zona anaeróbica-->
+                    <h6>Zona anaeróbica</h6>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" aria-label="Warning striped example" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <!--Línea roja-->
+                    <h6>Línea roja</h6>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" aria-label="Danger striped example" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+<!---EDAD-------------------------------------------------------------------------------------------->
+              <div class="container-fluid mt-4 " name="EDAD">
+                <div class="row">
+                  <div class="col-sm-3 col-md-3 col-lg-3"></div>
+                  <!--Formulario para introducir todos los datos-->
+                  <div name="edad" id="edad-datos" class="col-sm-3 col-md-3 col-lg-3 mt-4 align-self-center">
+                    <form id="EDADform">
+                      <div class="mb-3">
+                        <h6>Edad</h6>
+                        <input type="number" class="form-control" id="FCMedad">
+                      </div>
+                      <button type="submit" class="btn btn-primary">Enseñar</button>
+                    </form>
+                  </div>
+                  <div class="col-sm-3 col-md-3 col-lg-3"></div>
+                </div>
+              </div>
+<!----------------------------------------------------------------------------------------------->
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+<!---Popup IMC-------------------------------------------------------------------------------------------->
+
+    <div class="modal fade" id="myModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Tus resultados IMC</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,22 @@
+h2{text-align:center;}
+body{padding: 7%;padding-top: 2%}
+.cards
+{
+  display: flex;
+  justify-content: space-between;
+}
+.card
+{
+  text-align:center;
+  border: 3px solid black;
+  border-radius: 3%;
+  height: 300px
+}
+.card img
+{
+    object-fit: cover;
+    width: 250px;
+    height: 250px;
+}
+.preparacion > ol > li {padding: 10px}
+#garfield {max-height:0px;float:right; overflow: hidden; position: absolute; right: 0; top: 80%}

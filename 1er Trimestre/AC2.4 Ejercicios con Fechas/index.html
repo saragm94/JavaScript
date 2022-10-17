@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicios con strings</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <h2 class="text-center mt-4">Ejercicios con fechas</h2>
+    <div class="container text-center">
+      <div class="row mt-4">
+        <div class="col">
+          <button class="btn btn-info" type="button" onclick="fincurso()">Fin de curso</button>
+        </div>
+        <div class="col">
+          <button class="btn btn-info" type="button" onclick="domingos()">Domingos</button>
+        </div>
+        <div class="col">
+          <button class="btn btn-info" type="button" onclick="formato_fechas()">Formato fechas</button>
+        </div>
+        <div class="col">
+          <button class="btn btn-info" type="button" onclick="formato_horas()">Formato horas</button>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <!--EJERCICIO 1-->
+        <div class="col">
+          <div id="fin_curso" style="display:none">
+          </div>
+        </div>
+        <!--EJERCICIO 2-->
+        <div class="col">
+          <div id="domingos" style="display:none">
+            <form action="index.html" name="form_cumple" method="post" onsubmit ="return false">
+              <label for="cumple">Introduce tu fecha de cumpleaños:<input type="date" name="cumple"></label>
+              <input type="submit" value="Calcular" onclick="domingos_calcular()">
+            </form>
+          </div>
+          <div id="domingos_resultado" style="display:none">
+          </div>
+        </div>
+        <!--EJERCICIO 3-->
+        <div class="col">
+          <div id="formato_fechas" style="display:none">
+            <form action="index.html" name="form_fechas" method="post" onsubmit ="return false">
+              <label for="formato">Elige el formato que quieras ver:
+              <select class="text-center mt-4" type="date" name="formato">
+                <option value="short">XX/XX/XXXX</option>
+                <option value="long-es">Día, XX de mes de XXXX</option>
+                <option value="long-en">Day, month XX, XXXX</option>
+              </select>
+              <input class="mt-4" type="submit" value="Calcular" onclick="formato_fechas_calcular()">
+            </form>
+          </div>
+        </div>
+        <!--EJERCICIO 4-->
+        <div class="col">
+          <div id="formato_horas" style="display:none">
+            <form action="index.html" name="form_horas" method="post" onsubmit ="return false">
+              <label for="formato">Elige el formato que quieras ver:
+              <select class="text-center mt-4" type="date" name="formato">
+                <option value="24h">24 horas</option>
+                <option value="am-pm">AM / PM</option>
+              </select>
+              <input class="mt-4" type="submit" value="Calcular" onclick="formato_horas_calcular()">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

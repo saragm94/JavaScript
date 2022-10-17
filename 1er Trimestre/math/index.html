@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Math</title>
+    <style media="screen">
+      h2{text-align: center;}
+      form,label{padding: 2%}
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  </head>
+  <script type="text/javascript">
+    function calculos()
+    {
+      var ope = document.forms["operaciones"]["calcular"].value;
+      switch (ope) {
+        case "pot":
+          document.write('<form method="post" name="potencia" onsubmit ="return false">');
+            document.write('<p>Escriba dos números, la base y el exponente:</p>');
+            document.write('<label for="num_pot_bas">Elija base:<input type="number" name="num_pot_bas" value=""</label>');
+            document.write('<label for="num_pot_exp">Elija base:<input type="number" name="num_pot_exp" value=""</label>');
+          document.write('<input type="submit" value="Calcular" onclick="potencia_calc()"></br>');
+          break;
+        case "rai":
+          document.write('<form method="post" name="raiz" onsubmit ="return false">');
+            document.write('<p>Escriba un número para calcular la raíz:</p>');
+            document.write('<label for="num_rai">Escriba el número:<input type="number" name="num_rai" value=""</label>');
+          document.write('<input type="submit" value="Calcular" onclick="raiz_calc()"></br>');
+          break;
+        case "red":
+          document.write('<form method="post" name="redondeo" onsubmit ="return false">');
+            document.write('<p>Escriba un número a redondear:</p>');
+            document.write('<label for="num_red">Escriba el número decimal:<input type="text" name="num_red" value=""</label>');
+          document.write('<input type="submit" value="Calcular" onclick="redondeo_calc()"></br>');
+          break;
+        case "tri":
+          document.write('<form method="post" name="trigonometria" onsubmit ="return false">');
+            document.write('<p>Escriba un ángulo entre 0 y 360:</p>');
+            document.write('<label for="num_tri">Escriba el número:<input type="number" name="num_tri" value=""</label>');
+          document.write('<input type="submit" value="Calcular" onclick="trigonometria_calc()"></br>');
+          break;
+        case "cir":
+          document.write('<form method="post" name="circulo" onsubmit ="return false">');
+            document.write('<label for="num_cir">Escriba valor del radio:<input type="number" name="num_cir" value=""</label>');
+          document.write('<input type="submit" value="Calcular" onclick="circulo_calc()"></br>');
+          break;
+        default:
+      }
+    }
+    function potencia_calc()
+    {
+      var num_pot_bas = document.potencia.num_pot_bas.value;
+      var num_pot_exp = document.potencia.num_pot_exp.value;
+
+      document.write(`La potencia de  ${num_pot_bas} elevado a ${num_pot_exp} es: ${Math.pow(num_pot_bas, num_pot_exp)}`);
+    }
+    function raiz_calc()
+    {
+      var num_rai = document.raiz.num_rai.value;
+      if(num_rai <= 0)
+      {
+        document.write('Por favor, elija un número positivo');
+      }
+      if(num_rai > 0)
+      {
+        document.write(`La raíz cuadrada de  ${num_rai} es: ${Math.sqrt(num_rai)}`);
+      }
+    }
+    function redondeo_calc()
+    {
+      var num_red = document.redondeo.num_red.value;
+      document.write(`El redondeo de  ${num_red} es: ${Math.round(num_red)}`);
+    }
+    function trigonometria_calc()
+    {
+      var num_tri = document.trigonometria.num_tri.value;
+      if(num_tri < 0 && num_tri > 360)
+      {
+        document.write("Introduzca un número entre 0 y 360.")
+      }
+      if(num_tri > 0 && num_tri < 360)
+      {
+        document.write(`El seno de  ${num_tri} es: ${Math.sin(num_tri)} </br>`);
+        document.write(`El coseno de  ${num_tri} es: ${Math.cos(num_tri)} </br>`);
+        document.write(`La tangente de  ${num_tri} es: ${Math.tan(num_tri)} </br>`);
+      }
+    }
+    function circulo_calc()
+    {
+      var num_cir = document.circulo.num_cir.value;
+      document.write(`El valor del radio es:  ${num_cir}cm</br>`);
+      document.write(`El valor del diámetro es:  ${num_cir*2}cm</br>`);
+      document.write(`El valor del perímetro es:  ${2*Math.PI*num_cir}cm</br>`);
+      document.write(`El valor del área es:  ${Math.PI*(Math.pow(num_cir,2))}m2</br>`);
+      document.write(`El valor de la esfera es:  ${4*Math.PI*(Math.pow(num_cir,2))}m3</br>`);
+      document.write(`El volumen de la esfera es:  ${(4/3)*Math.PI*(Math.pow(num_cir,3))}m3</br>`);
+    }
+
+  </script>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <h2 class="mt-4">Ejercicios con valores numéricos (Objeto Number y Math)</h2>
+    <form action="index.html" method="post" name="operaciones" onsubmit ="return false">
+      <label for="calcular">Elija operación a realizar:</label>
+      <select name="calcular">
+        <option value="x" selected="selected" disabled>Elija operación</option>
+        <option value="pot">Potencia</option>
+        <option value="rai">Raíz</option>
+        <option value="red">Redondeo</option>
+        <option value="tri">Trigonometría</option>
+        <option value="cir">Círculo</option>
+      </select>
+      <input type="submit" value="Calcular" onclick="calculos()">
+    </form>
+  </body>
+</html>

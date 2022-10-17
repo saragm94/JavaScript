@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicios con strings</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <h2 class="text-center mt-4">Ejercicios con strings</h2>
+    <div class="container text-center">
+      <div class="row mt-4">
+        <div class="col">
+          <button class="btn btn-info" type="button" onclick="todos()">Todos los usuarios</button>
+        </div>
+        <div class="col">
+          <button class="btn btn-info" type="button" onclick="provincia()">Usuarios de una provincia</button>
+        </div>
+        <div class="col">
+          <button class="btn btn-info" type="button" onclick="cuota()">Usuarios por cuota</button>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col">
+          <div id="todos_usuarios" style="display:none">
+            <form action="index.hmtl" method="post" name="form_todos" onsubmit ="return false"></br>
+              <label for="usuarios_nombre">Introduzca nombre: <input type="text" name="usuarios_nombre"></label></br>
+              <label for="usuarios_apellido">Introduzca apellidos: <input type="text" name="usuarios_apellido"></label></br>
+              <input class="mt-4 btn btn-info" type="submit" value="Enviar" onclick="todos_calcular()"></br>
+              </form></br>
+          </div>
+          <div id="todos_usuarios_resultado" style="display:none">
+              <table class="table table-striped">
+                <tr>
+                  <th>Tamaño del nombre</th>
+                  <td><p id="nombre_longitud"></p></td>
+                </tr>
+                <tr>
+                  <th>Cadena en minúsculas</th>
+                  <td><p id="nombre_minus"></p></td>
+                </tr>
+                <tr>
+                  <th>Cadena en mayúsculas</th>
+                  <td><p id="nombre_mayus"></p></td>
+                </tr>
+                <tr>
+                  <th>Nombre</th>
+                  <td><p id="nombre"></p></td>
+                </tr>
+                <tr>
+                  <th>Apellido 1</th>
+                  <td><p id="apellido1"></p></td>
+                </tr>
+                <tr>
+                  <th>Apellido 2</th>
+                  <td><p id="apellido2"></p></td>
+                </tr>
+                <tr>
+                  <th>Propuesta de usuario</th>
+                  <td><p id="usuario"></p></td>
+                </tr>
+                <tr>
+                  <th>Propuesta de usuario compuesto</th>
+                  <td><p id="usuario_comp"></p></td>
+                </tr>
+              </table>
+          </div>
+        </div>
+        <div class="col">
+          <div id="provincia_usuarios" style="display:none">
+            <form action="index.hmtl" method="post" name="form_todos" onsubmit ="return false"></br>
+              <label for="select_provincia">Seleccione provincia<select id="select_provincia" name="select_provincia"></label>
+              </select>
+              <input class="mt-4 btn btn-info" type="submit" value="Enviar" onclick="provincia_resultado()"></br>
+            </form>
+          </div>
+          <div id="todos_provincia_resultado" style="display:none">
+            A
+          </div>
+        </div>
+        <div class="col">
+          <div id="cuota_usuarios" style="display:none">
+a
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
