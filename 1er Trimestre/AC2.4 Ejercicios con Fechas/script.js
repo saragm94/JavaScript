@@ -18,7 +18,7 @@ function fincurso()
 }
 
 
-//EJERCICIO 2 * * SIN TERMINAR
+//EJERCICIO 2 TERMINADO
 function domingos()
 {
   var y = document.getElementById("domingos");
@@ -41,15 +41,13 @@ function domingos_calcular()
   var cumple_dia = new Date(document.form_cumple.cumple.value);
   //separamos el año
   var anio_hoy = cumple_dia.getFullYear();
-  /**
-  * ! Hay error con el bucle para avanzar los años
-  * */
+   var contador = 0;
   for(var i = anio_hoy; i <= anio_fin; i++)
   {
-    var contador = 0;
-    if (cumple_dia.getDay() == 6)
+    cumple_dia = new Date(i+"-"+(cumple_dia.getMonth()+1)+"-"+cumple_dia.getDate());
+    if (cumple_dia.getDay() == 0)
     {
-      contador = contador + 1;
+      contador++;
     }
   }
   document.getElementById("domingos_resultado").innerHTML = contador;
