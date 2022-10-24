@@ -28,7 +28,7 @@
               <label for="usuarios_nombre">Introduzca nombre: <input type="text" name="usuarios_nombre"></label></br>
               <label for="usuarios_apellido">Introduzca apellidos: <input type="text" name="usuarios_apellido"></label></br>
               <input class="mt-4 btn btn-info" type="submit" value="Enviar" onclick="todos_calcular()"></br>
-              </form></br>
+            </form></br>
           </div>
           <div id="todos_usuarios_resultado" style="display:none">
               <table class="table table-striped">
@@ -69,19 +69,23 @@
         </div>
         <div class="col">
           <div id="provincia_usuarios" style="display:none">
-            <form action="index.hmtl" method="post" name="form_todos" onsubmit ="return false"></br>
+            <form action="index.hmtl" method="post" name="form_provi" onsubmit ="return false"></br>
               <label for="select_provincia">Seleccione provincia<select id="select_provincia" name="select_provincia"></label>
               </select>
               <input class="mt-4 btn btn-info" type="submit" value="Enviar" onclick="provincia_resultado()"></br>
             </form>
           </div>
           <div id="todos_provincia_resultado" style="display:none">
-            A
           </div>
         </div>
         <div class="col">
           <div id="cuota_usuarios" style="display:none">
-a
+            <form action="index.hmtl" method="post" name="form_cuotas" onsubmit ="return false"></br>
+              <label for="cuota">Introduzca valor de cuota: <input type="text" name="cuota"></label></br>
+              <input class="mt-4 btn btn-info" type="submit" value="Enviar" onclick="cuota_calcular()"></br>
+            </form></br>
+          </div>
+          <div id="cuota_resultado" style="display:none">
           </div>
         </div>
       </div>

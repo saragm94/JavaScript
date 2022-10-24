@@ -31,7 +31,8 @@ function todos_calcular()
 }
 
 
-
+//Array fuera de las funciones para hacerlo global y no tener que escribirlo varias veces
+var usuarios = [['Laura','Santander','50'],['Álvaro','Castro','50'],['Igor','Castro','60'],['Ivan','Santander','40'],['Mónica','Zamora','30'],['Javi','Bilbao','30'],['David','Bilbao','50'],['José Luis','Bilbao','60']];
 function provincia()
 {
   var y = document.getElementById("provincia_usuarios");
@@ -47,7 +48,6 @@ function provincia()
 }
 function provincia_elegir()
 {
-  var usuarios = [['Laura','Santander','50'],['Álvaro','Castro','50'],['Igor','Castro','60'],['Ivan','Santander','40'],['Mónica','Zamora','30'],['Javi','Bilbao','30'],['David','Bilbao','50'],['José Luis','Bilbao','60']];
   var provincias = [];
   var select = document.getElementById('select_provincia');
   for (var i = 0; i < usuarios.length; i++)
@@ -59,6 +59,7 @@ function provincia_elegir()
   for (var i = 0; i < provincias_def.length; i++)
   {
     var opt = document.createElement('option');
+    opt.setAttribute("id", "option_provincia");
     opt.value = provincias_def[i];
     opt.innerHTML = provincias_def[i];
     select.appendChild(opt);
@@ -66,7 +67,16 @@ function provincia_elegir()
 }
 function provincia_resultado()
 {
-
+  var op = document.getElementById("select_provincia");
+  var op2 = op.options[op.selectedIndex].value;
+  document.getElementById("todos_provincia_resultado").style.display = "block";
+  for (let i = 0; i < usuarios.length; i++)
+  {
+    if(usuarios[i][1] == op2)
+    {
+      document.getElementById('todos_provincia_resultado').innerHTML += usuarios[i][0] + " - " + usuarios[i][2] + "</br>";
+    }
+  }
 }
 
 
@@ -81,4 +91,36 @@ function cuota()
   {
     document.getElementById("cuota_usuarios").style.display = "none";
   }
+}
+function cuota_calcular()
+{
+  var cuota = document.form_cuotas.cuota.value;
+  //Se crean dos arrays para almacenar a los usuarios dependiendo de si la cuota es mayor o menor al número introducido
+  var cuota_mayor = [];
+  var cuota_menor = [];
+  for(var i = 0; i < usuarios.length; i++)
+  {
+    if(usuarios[i][2] < cuota)
+    { var a = 0;
+      cuota_menor[a] = usuarios[i][0];
+      a++;
+    }  
+    if(usuarios[i][2] >= cuota)
+    {
+      var b = 0;
+      cuota_mayor[b] = usuarios[i][0];
+      b++;
+    }
+  }
+  document.getElementById('cuota_resultado').innerHTML += "Los usuarios con la cuota <b>menor</b> a " + cuota + " son : </br> ";
+  for(var j = 0; j < cuota_menor.length; j++)
+  {
+    document.getElementById('cuota_resultado').innerHTML += cuota_menor[j] + "</br>" ;
+  }
+  document.getElementById('cuota_resultado').innerHTML += "Los usuarios con la cuota <b>mayor</b> a " + cuota + " son : </br> ";
+  for(var k = 0; k < cuota_mayor.length; k++)
+  {
+    document.getElementById('cuota_resultado').innerHTML += cuota_mayor[k] + "</br>" ;
+  }
+  document.getElementById("cuota_resultado").style.display = "block";
 }
