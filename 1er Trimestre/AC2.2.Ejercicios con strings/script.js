@@ -96,31 +96,21 @@ function cuota_calcular()
 {
   var cuota = document.form_cuotas.cuota.value;
   //Se crean dos arrays para almacenar a los usuarios dependiendo de si la cuota es mayor o menor al número introducido
-  var cuota_mayor = [];
-  var cuota_menor = [];
+  var cuota_mayor = "";
+  var cuota_menor = "";
   for(var i = 0; i < usuarios.length; i++)
   {
     if(usuarios[i][2] < cuota)
-    { var a = 0;
-      cuota_menor[a] = usuarios[i][0];
-      a++;
+    { 
+      cuota_menor = cuota_menor.concat(usuarios[i][0], ", ");
     }  
     if(usuarios[i][2] >= cuota)
     {
-      var b = 0;
-      cuota_mayor[b] = usuarios[i][0];
-      b++;
+      cuota_mayor = cuota_mayor.concat(usuarios[i][0], ", ");
     }
   }
-  document.getElementById('cuota_resultado').innerHTML += "Los usuarios con la cuota <b>menor</b> a " + cuota + " son : </br> ";
-  for(var j = 0; j < cuota_menor.length; j++)
-  {
-    document.getElementById('cuota_resultado').innerHTML += cuota_menor[j] + "</br>" ;
-  }
-  document.getElementById('cuota_resultado').innerHTML += "Los usuarios con la cuota <b>mayor</b> a " + cuota + " son : </br> ";
-  for(var k = 0; k < cuota_mayor.length; k++)
-  {
-    document.getElementById('cuota_resultado').innerHTML += cuota_mayor[k] + "</br>" ;
-  }
+  document.getElementById('cuota_resultado').innerHTML += "Los usuarios con la cuota <b>menor</b> a " + cuota + " son : " + cuota_menor + "</br> ";
+
+  document.getElementById('cuota_resultado').innerHTML += "Los usuarios con la cuota <b>mayor</b> a " + cuota + " son : " + cuota_mayor + "</br> ";
   document.getElementById("cuota_resultado").style.display = "block";
 }
