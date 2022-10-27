@@ -49,3 +49,10 @@ function ejer1()
     var inter = paises1.slice(inter_ini, inter_fin);
     document.getElementById('ejer1').innerHTML += "<p>Los elementos entre la posición <b>" + inter_ini + "</b> y <b>" + inter_fin + "</b> del array son: " + inter + "</p>";
 }
+
+function ejer2()
+{
+    document.getElementById("ejer2").style.display = "block";
+
+    //Total de países
+}
