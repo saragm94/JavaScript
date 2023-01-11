@@ -1,0 +1,11 @@
+body{background-color: #CBCCC6;font-family: Arial;}
+h1{color:red;text-align: center;font-size:50px;}
+
+ul{display: flex; justify-content: center;}
+
+li{list-style: none; text-align: center; padding: 20px; font-weight: bold; font-size: 20px;}
+li:hover{color:white}
+
+a{text-decoration: none;}
+a:visited{color:black}
+a:visited:hover{color:white}
