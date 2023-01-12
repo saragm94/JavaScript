@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap');
+
+body{font-family: Nunito, sans-serif;font-size: 1rem;font-weight: 400;}
+h1,h2,h3{font-weight: 700;}
+h3{font-size: 1.5rem;}
+h2{font-size: 2rem;}
+h1{font-size: 3rem;}
+
+header
+{
+    a
+    {
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+        img{align-self: flex-start;width: 10%}
+        h1{position: relative;margin: auto;left:-10%}
+    }
+    
+    h2{}
+}
