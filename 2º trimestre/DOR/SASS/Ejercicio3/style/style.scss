@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap');
+
+body
+{
+    font-family: Nunito, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    max-width: 1400px;
+    align-content: center;
+    margin: auto;
+}
+
+h1,h2,h3{font-weight: 700;}
+h3{font-size: 1.5rem;}
+h2{font-size: 2rem;}
+h1{font-size: 3rem;}
+
+header
+{
+    background-color: #daf2f5;
+    position: relative;
+    a
+    {
+        display:flex;
+        justify-content: center;
+        img{align-self: flex-start;width: 10%}
+        h1{margin: auto;text-align: center;}
+    }
+    h2
+    {
+        display:flex;
+        position: relative;
+        justify-content: center;   
+    }
+}
+
+nav
+{
+    width:100%;
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-around;
+    background-color: #daf2f5;;
+    ul
+    {
+        display: inline;
+        position: relative;
+        li
+        {
+            display: inline;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            font-weight: 400;color: black;
+            a{text-decoration: none;}
+            a:visited{color:black;}
+            a:hover{font-weight: 700;color: red;}
+        }
+    }
+}
+
+section{min-height: 20em;}
+
+footer
+{
+    background-color: #daf2f5;
+    position: relative;
+    padding: 3%;
+    div
+    {
+        display: flex;
+        justify-content: center;
+        a
+        {
+            display: inline;
+            text-decoration: none;
+            img{width: 3em;}
+        }
+    }
+    p{font-size: 0.8em;display:flex;justify-content: center;margin-top:5%;}
+}
