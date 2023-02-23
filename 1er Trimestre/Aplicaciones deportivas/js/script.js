@@ -63,7 +63,6 @@ function resultados()
       document.getElementById("EDADresultado").style.display = 'block';
     }
   }
-
 }
 
 //$(document).ready(function(){$("#myModal").modal('show');});
@@ -71,24 +70,5 @@ function resultados()
 //FUNCIÓN PARA CÁLCULO DE IMC
 function IMC()
 {
-  //const modalToggle = document.getElementById('myModal');
-  //myModal.show(modalToggle);
-
-
-
-//////////https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_js_modal_js&stacked=h
-$(document).ready(function(){
-  $("#myBtn").click(function(){
-    $("#myModal").modal();
-  });
-});
-
-
-
-
-
-
-
-
 
 }

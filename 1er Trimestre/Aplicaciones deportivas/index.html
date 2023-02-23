@@ -44,8 +44,28 @@
                     <label for="IMCpeso"><h6>Peso</h6></label>
                     <input type="number" class="form-control" id="IMCpeso">
                   </div>
-                  <button type="submit" class="btn btn-primary" id="ModalIMC">Calcular</button>
+                  <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="ModalIMC">
+                    Calcular
+                  </button>
                 </form>
+              </div>
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      ...
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
               </div>
               <!--Tabla de referencias-->
               <div name="imc-ref" id="imc-ref" class="col-sm-3 col-md-3 col-lg-3 my-4" >
@@ -139,7 +159,7 @@
                   <div name="FCM" id="imc-datos" class="col-sm-3 col-md-3 col-lg-3 mt-4 align-self-center">
                     <form id="FCMform">
                       <div class="mb-3">
-                        <label for="FCMedad"><h6>Edad</h6></label
+                        <label for="FCMedad"><h6>Edad</h6></label>
                         <input type="number" class="form-control" id="FCMedad">
                       </div>
                       <div class="mb-3">
