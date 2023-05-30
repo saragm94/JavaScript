@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Aplicaciones Deportivas</title>
+    </head>
+    <body onload="hora()">
+        <h1>Aplicaciones Deportivas</h1>
+        <div>
+            <div>
+                <h2>IMC <button onclick="IMC()">Calcular</button></h2>
+                <p id="imc"></p>
+            </div>
+            <div>
+                <h2>FCM <button onclick="FMC()">Calcular</button></h2>
+                <p id="fmc"></p>
+            </div>
+            <div>
+                <h2>Calculadora de categoría <button onclick="categoria()">Click para calcular su Categoria</button></h2>
+                <p id="categoria"></p>
+            </div>
+        </div>
+        <script>
+            ////////////////IMC/////////////////
+            function IMC()
+            {
+                let altura = parseFloat(prompt("Introduzca su altura en CM",)).toFixed(2);
+                let peso = parseFloat(prompt("Introduzca su peso en KG",)).toFixed(2);  
+                
+                altura = altura / 100;
+
+                let imc = (peso / Math.pow(altura,2));
+                
+                if(isNaN(altura) || isNaN(peso)){
+                    alert("Introduzca valores no nulos.");
+                } else {
+                    let p = document.getElementById("imc");
+                    if(imc < 16.00){
+                    p.setAttribute("style", "color:red;","font-weight:bold;");
+                    document.getElementById("imc").innerHTML += "Infrapeso (delgadez severa).<br>"+"IMC = " + imc;
+                    } else if (imc >= 16.00 && imc <= 16.99){
+                        p.setAttribute("style", "color:#FC7337;","font-weight:bold;");
+                        document.getElementById("imc").innerHTML += "<strong>Infrapeso</strong> (delgadez moderada).<br>"+"IMC = " + imc;
+                    } else if (imc >= 17.00 && imc <= 17.49){
+                        p.setAttribute("style", "color:#FCDC37;","font-weight:bold;");
+                        document.getElementById("imc").innerHTML += "<strong>Infrapeso</strong> (delgadez aceptable).<br>"+"IMC = " + imc;
+                    } else if (imc >= 18.50 && imc <= 24.99){
+                        p.setAttribute("style", "color:#80F800;","font-weight:bold;");
+                        document.getElementById("imc").innerHTML += "Peso <strong>normal</strong>.<br>"+"IMC = " + imc;
+                    } else if (imc >= 25.00 && imc <= 29.99){
+                        p.setAttribute("style", "color:#008FF8;","font-weight:bold;");
+                        document.getElementById("imc").innerHTML += "<strong>Sobrepeso</strong>.<br>"+"IMC = " + imc;
+                    } else if (imc >= 30.00 && imc <= 34.99){
+                        p.setAttribute("style", "color:##000FF8;","font-weight:bold;");
+                        document.getElementById("imc").innerHTML += "<strong>Obeso (Tipo I)</strong>.<br>"+"IMC = " + imc;
+                    } else if (imc >= 35.00 && imc <= 40.00){
+                        p.setAttribute("style", "color:##ED00F8;","font-weight:bold;");
+                        document.getElementById("imc").innerHTML += "<strong>Obeso (Tipo II)</strong>.<br>"+"IMC = " + imc;
+                    } else {
+                        p.setAttribute("style", "color:red;","font-weight:bold;");
+                        document.getElementById("imc").innerHTML += "<strong>Obeso (Tipo III)</strong>.<br>"+"IMC = " + imc;
+                    }
+                }
+            }
+            ////////////////FMC/////////////////
+            function FMC()
+            {
+                let edad = parseInt(prompt("Introduzca edad",));
+                let sexo = prompt("Introduzca sexo (fem/mas)",);
+                if (isNaN(edad) || !isNaN(sexo)){
+                    alert("Debe introducir un formato de Edad-Sexo valido.");
+                } else {
+                    let fmc;
+                    if (sexo.toLowerCase() == "fem")
+                    {
+                        fmc = (208 - (0.7 * edad));
+                        valoresFMC(fmc);
+                    } else if (sexo.toLocaleLowerCase() == "mas")
+                    {
+                        fmc = (206 - (0.88 * edad));
+                        valoresFMC(fmc);
+                    } else 
+                    {
+                        alert("Sexo introducido no valido.");
+                    }
+                }
+            }
+            function valoresFMC(fmc)
+            {
+                let zona1 = (fmc*0.6).toFixed(2);
+                let zona2 = (fmc*0.7).toFixed(2);
+                let zona3 = (fmc*0.8).toFixed(2);
+                let zona4 = (fmc*0.9).toFixed(2);
+                document.getElementById("fmc").innerHTML += "Su zona de recuperación está entre "+zona1+" y "+zona2;
+                document.getElementById("fmc").innerHTML += "<br>Su zona aeróbica está entre "+zona2+" y "+zona3;
+                document.getElementById("fmc").innerHTML += "<br>Su zona anaeróbica está entre "+zona3+" y "+zona4;
+                document.getElementById("fmc").innerHTML += "<br>Su Línea roja está entre "+zona4+" y "+fmc;
+            }
+            ////////////////Categoria/////////////////
+            function categoria()
+            {
+                let anio = prompt("Introduzca su año de nacimiento.",);
+                if (!isNaN(anio)){
+                    switch(true){
+                        case(anio >= 2012 && anio <=2014):
+                            document.getElementById("categoria").innerHTML = "Se encuenta en la categoria <strong>prebenjamin</strong>.";
+                        break;
+                        case (anio >= 2010 && anio <=2011):
+                            document.getElementById("categoria").innerHTML = "Se encuenta en la categoria <strong>benjamin</strong>.";
+                        break;
+                        case (anio >= 2008 && anio <=2009):
+                            document.getElementById("categoria").innerHTML = "Se encuenta en la categoria <strong>alevin</strong>.";
+                        break;
+                        case (anio >= 2006 && anio <=2007):
+                            document.getElementById("categoria").innerHTML = "Se encuenta en la categoria <strong>infantil</strong>.";
+                        break;
+                        case (anio >= 2004 && anio <=2005):
+                            document.getElementById("categoria").innerHTML = "Se encuenta en la categoria <strong>cadete</strong>.";
+                        break;
+                        case (anio >= 2001 && anio <=2003):
+                            document.getElementById("categoria").innerHTML = "Se encuenta en la categoria <strong>juvenil</strong>.";
+                        break;
+                        case (anio < 2001 && anio > 1900):
+                            document.getElementById("categoria").innerHTML = "Se encuenta en la categoria <strong>senior</strong>.";
+                        break;
+                    }
+                } else {
+                    alert("Formato de año no válido.");
+                }
+            }
+        </script>
+    </body>
+</html>

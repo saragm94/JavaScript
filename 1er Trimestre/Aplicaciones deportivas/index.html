@@ -18,7 +18,7 @@
           <p class="lead mb-4" name="FCM">Una frecuencia cardíaca en reposo normal para los adultos oscila entre 60 y 100 latidos por minuto. Generalmente, una frecuencia cardíaca más baja en reposo implica una función cardíaca más eficiente y un mejor estado físico cardiovascular.</p>
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
             <h3 class="display-8 fw-bold">Elija tipo de pueba</h3>
-            <!--Botones para seleccionar una calculadora-->
+<!---MENU-------------------------------------------------------------------------------------------->
             <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
               <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
               <label class="btn btn-outline-primary btn-lg px-4 gap-3" for="btnradio1" onclick="showIMC()">IMC</label>
@@ -44,7 +44,7 @@
                     <label for="IMCpeso"><h6>Peso</h6></label>
                     <input type="number" class="form-control" id="IMCpeso">
                   </div>
-                  <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="ModalIMC">
+                  <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="ModalIMC" onclick="IMC()">
                     Calcular
                   </button>
                 </form>
@@ -110,44 +110,7 @@
                   <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" aria-label="Danger striped example" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
               </div>
-      <!--Resultados----------------------------------------------->
-              <!--Los resultados se irán mostrando en una columna a la derecha según se vayan calculando-->
-              <div class="col-sm-3 col-md-3 col-lg-3 mt-4 align-self-center" id="resultados">
-                <!--IMC---------------------------------------------->
-                <div class="row justify-content-center" id="IMCresultado" style="display: none">
-                  <!--Peso y altura-->
-                  <div class="row justify-content-center">
-                    <div class="col-sm-3 col-md-3 col-lg-3">
-                      <h5>Altura</h5>
-                    </div>
-                    <div class="col-sm-3 col-md-3 col-lg-3">
-                      <h5>Peso</h5>
-                    </div>
-                  </div>
-                  <!--Barra de peso-->
-                  <div class="progress mt-4">
-                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" aria-label="Warning striped example" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-                <!--FCM---------------------------------------------->
-                <!-- https://bestjquery.com/tutorial/progress-bar/demo70/ -->
-                <div class="row justify-content-center" id="FMCresultado" style="display: none" >
-                  <div class="progress-circle blue mt-4">
-                  <span class="progress-left">
-                      <span class="progress-bar"></span>
-                  </span>
-                  <span class="progress-right">
-                      <span class="progress-bar"></span>
-                  </span>
-                  <div class="inner-circle"></div>
-                  <div class="progress-value"><span>5</span>%</div>
-                </div>
-                <!--EDAD---------------------------------------------->
-                <div class="row justify-content-center mt-4" id="EDADresultado" style="display: none">
-                  <h5>Millenial</h5>
-                </div>
-                </div>
-              </div>
+
             </div>
           </div>
 <!---FCM-------------------------------------------------------------------------------------------->
@@ -211,34 +174,53 @@
                   <div class="col-sm-3 col-md-3 col-lg-3"></div>
                 </div>
               </div>
-<!----------------------------------------------------------------------------------------------->
+<!--Resultados----------------------------------------------->
+              <div class="d-grid gap-2 d-sm-flex justify-content-sm-center" id="resultados">
+              <!--Los resultados se irán mostrando en una columna a la derecha según se vayan calculando-->
+                <div class="col-sm-3 col-md-3 col-lg-3 mt-4 align-self-center">
+                  <!--IMC---------------------------------------------->
+                  <div class="row justify-content-center" id="IMCresultado" style="display: none">
+                    <!--Peso y altura-->
+                    <div class="row justify-content-center">
+                      <div class="col-sm-3 col-md-3 col-lg-3">
+                        <h5>Altura</h5>
+                      </div>
+                      <div class="col-sm-3 col-md-3 col-lg-3">
+                        <h5>Peso</h5>
+                      </div>
+                    </div>
+                    <!--Barra de peso-->
+                    <div class="progress mt-4">
+                      <div class="progress-bar progress-bar-striped bg-success" role="progressbar" aria-label="Warning striped example" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
+                  <!--FCM---------------------------------------------->
+                  <!-- https://bestjquery.com/tutorial/progress-bar/demo70/ -->
+                  <div class="row justify-content-center" id="FMCresultado" style="display: none" >
+                    <div class="progress-circle blue mt-4">
+                    <span class="progress-left">
+                        <span class="progress-bar"></span>
+                    </span>
+                    <span class="progress-right">
+                        <span class="progress-bar"></span>
+                    </span>
+                    <div class="inner-circle"></div>
+                    <div class="progress-value"><span>5</span>%</div>
+                  </div>
+                  <!--EDAD---------------------------------------------->
+                  <div class="row justify-content-center mt-4" id="EDADresultado" style="display: none">
+                    <h5>Millenial</h5>
+                  </div>
+                  </div>
+                </div>
+              </div>   
             </div>
           </div>
         </div>
       </div>
     </main>
-<!---Popup IMC-------------------------------------------------------------------------------------------->
-
-    <div class="modal fade" id="myModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Tus resultados IMC</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            ...
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-
-
   </body>
 </html>
